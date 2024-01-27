@@ -1,11 +1,11 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import create, { GetState, SetState } from 'zustand'
+import { StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { IExperienceItem, IExperienceStore } from './experience.interface'
 
 const addExperience =
-  (set: SetState<IExperienceStore>) =>
+  (set: StoreApi<IExperienceStore>['setState']) =>
   ({
     name,
     position,
@@ -35,19 +35,21 @@ const addExperience =
       })
     )
 
-const removeExperience = (set: SetState<IExperienceStore>) => (index: number) =>
+const removeExperience = (set: StoreApi<IExperienceStore>['setState']) => (index: number) =>
   set((state) => ({
     experiences: state.experiences.slice(0, index).concat(state.experiences.slice(index + 1)),
   }))
 
-const setExperience = (set: SetState<IExperienceStore>) => (values: IExperienceItem[]) => {
-  set({
-    experiences: values,
-  })
-}
+const setExperience =
+  (set: StoreApi<IExperienceStore>['setState']) => (values: IExperienceItem[]) => {
+    set({
+      experiences: values,
+    })
+  }
 
 const updateExperience =
-  (set: SetState<IExperienceStore>) => (index: number, updatedInfo: IExperienceItem) => {
+  (set: StoreApi<IExperienceStore>['setState']) =>
+  (index: number, updatedInfo: IExperienceItem) => {
     set(
       produce((state: IExperienceStore) => {
         state.experiences[index] = updatedInfo
@@ -55,11 +57,11 @@ const updateExperience =
     )
   }
 
-const getExperience = (get: GetState<IExperienceStore>) => (index: number) => {
+const getExperience = (get: StoreApi<IExperienceStore>['getState']) => (index: number) => {
   return get().experiences[index]
 }
 
-const onMoveUp = (set: SetState<IExperienceStore>) => (index: number) => {
+const onMoveUp = (set: StoreApi<IExperienceStore>['setState']) => (index: number) => {
   set(
     produce((state: IExperienceStore) => {
       if (index > 0) {
@@ -71,7 +73,7 @@ const onMoveUp = (set: SetState<IExperienceStore>) => (index: number) => {
   )
 }
 
-const onMoveDown = (set: SetState<IExperienceStore>) => (index: number) => {
+const onMoveDown = (set: StoreApi<IExperienceStore>['setState']) => (index: number) => {
   set(
     produce((state: IExperienceStore) => {
       const totalExp = state.experiences.length
@@ -84,7 +86,7 @@ const onMoveDown = (set: SetState<IExperienceStore>) => (index: number) => {
   )
 }
 
-export const useExperiences = create<IExperienceStore>(
+export const useExperiences = create<IExperienceStore>()(
   persist(
     (set, get) => ({
       experiences: resumeData.work,
