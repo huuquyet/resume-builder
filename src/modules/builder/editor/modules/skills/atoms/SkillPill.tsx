@@ -1,13 +1,13 @@
-import Image from 'next/image';
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import { motion } from 'framer-motion';
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const animation = {
   initial: { y: 25, opacity: 0 },
   animate: { y: 0, opacity: 1 },
   exit: { height: 0, padding: 0, opacity: 0, transition: { duration: 0.15 } },
-};
+}
 
 const SkillPill = ({
   index,
@@ -16,20 +16,20 @@ const SkillPill = ({
   onDelete,
   showLevel,
 }: {
-  index: number;
-  name: string;
-  level?: number;
-  onDelete: (index: number) => void;
-  showLevel: boolean;
+  index: number
+  name: string
+  level?: number
+  onDelete: (index: number) => void
+  showLevel: boolean
 }) => {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
     id: name,
-  });
+  })
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-  };
+  }
 
   return (
     <motion.div
@@ -58,12 +58,16 @@ const SkillPill = ({
           {name}
         </span>
         {showLevel && <span className="ml-2">{level}</span>}
-        <button className="ml-2 min-w-max flex items-center" onClick={() => onDelete(index)}>
+        <button
+          className="ml-2 min-w-max flex items-center"
+          onClick={() => onDelete(index)}
+          type="button"
+        >
           <Image src="/icons/close.svg" width={16} height={16} alt="close" />
         </button>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default SkillPill;
+export default SkillPill
