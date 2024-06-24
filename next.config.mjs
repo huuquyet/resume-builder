@@ -3,10 +3,7 @@ const nextConfig = {
   // output: 'export',
 
   reactStrictMode: true,
-  images: {
-    domains: ['avatars.githubusercontent.com'],
-    // unoptimized: true,
-  },
+  images: {},
   async redirects() {
     return [
       {
