@@ -1,5 +1,5 @@
 import { dateParser } from 'src/helpers/utils'
-import { IEducation } from 'src/stores/index.interface'
+import type { IEducation } from 'src/stores/index.interface'
 import { SectionHeading } from '../atoms/SectionHeading'
 import { SectionSubtitle } from '../atoms/SectionSubtitle'
 import { SectionTitle } from '../atoms/SectionTitle'

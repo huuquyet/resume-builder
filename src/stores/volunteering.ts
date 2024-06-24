@@ -1,8 +1,8 @@
 import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { IVolunteeringItem, IVolunteeringStore } from './volunteering.interface'
+import type { IVolunteeringItem, IVolunteeringStore } from './volunteering.interface'
 
 const addVolunteering =
   (set: StoreApi<IVolunteeringStore>['setState']) =>

@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import React, { Fragment } from 'react'
-import { IActivityTab } from '../ActivitiesLayout'
+import type { IActivityTab } from '../ActivitiesLayout'
 
 const BasicPanel = ({ activeTab }: { activeTab: IActivityTab }) => {
   const ActiveTabComponent = activeTab.component

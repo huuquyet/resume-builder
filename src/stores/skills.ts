@@ -1,8 +1,8 @@
 import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { ISkillItem, ISkillState } from './skill.interface'
+import type { ISkillItem, ISkillState } from './skill.interface'
 
 const addSkill =
   (set: StoreApi<ISkillState>['setState']) =>

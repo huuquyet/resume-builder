@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 import { CUSTOM_THEME_COLOR, SYSTEM_COLORS } from 'src/helpers/constants/index'
-import { IThemeColor } from 'src/helpers/constants/index.interface'
+import type { IThemeColor } from 'src/helpers/constants/index.interface'
 
 interface IThemeStore {
   selectedTheme: IThemeColor

@@ -1,4 +1,4 @@
-import { IItem } from 'src/stores/index.interface'
+import type { IItem } from 'src/stores/index.interface'
 import { SectionHeading } from '../atoms/SectionHeading'
 
 export const SkillsSection = ({ title, list }: { title: string; list: IItem[] }) => {

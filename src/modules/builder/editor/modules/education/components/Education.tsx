@@ -1,11 +1,12 @@
 import TextField from '@mui/material/TextField'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import React, { ChangeEvent, Fragment, useCallback } from 'react'
+import type React from 'react'
+import { type ChangeEvent, Fragment, useCallback } from 'react'
 
 import { SwitchWidget } from 'src/helpers/common/atoms/Switch'
 import { DATE_PICKER_FORMAT } from 'src/helpers/constants'
 import { useEducations } from 'src/stores/education'
-import { IEducationItem } from 'src/stores/education.interface'
+import type { IEducationItem } from 'src/stores/education.interface'
 
 interface IEducationProps {
   educationInfo: IEducationItem

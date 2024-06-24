@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { AnimatePresence } from 'framer-motion'
 import DragContainer from 'src/helpers/common/components/DragContainer'
-import { ISkillItem } from 'src/stores/skill.interface'
+import type { ISkillItem } from 'src/stores/skill.interface'
 import SkillPill from '../atoms/SkillPill'
 import AddSkill from './AddSkill'
 

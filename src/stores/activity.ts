@@ -1,8 +1,8 @@
 import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { IActivity, IActivityStore } from './activity.interface'
+import type { IActivity, IActivityStore } from './activity.interface'
 
 const setAllAwards = (set: StoreApi<IActivityStore>['setState']) => (activityItem: IActivity) => {
   set({

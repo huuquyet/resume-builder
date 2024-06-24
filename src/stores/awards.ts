@@ -1,8 +1,8 @@
 import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { IAwardItem, IAwardsStore } from './awards.interface'
+import type { IAwardItem, IAwardsStore } from './awards.interface'
 
 const addAward =
   (set: StoreApi<IAwardsStore>['setState']) =>

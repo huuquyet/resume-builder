@@ -1,6 +1,6 @@
 import Popover from '@mui/material/Popover'
 
-import { INavMenuPopoverProps } from './NavMenuPopover.interface'
+import type { INavMenuPopoverProps } from './NavMenuPopover.interface'
 
 export const NavMenuPopover = ({
   isOpen,

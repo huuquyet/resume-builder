@@ -2,7 +2,7 @@ import { ColorBox, ColorBoxWrapper } from '../atoms'
 
 import Image from 'next/image'
 import { SYSTEM_COLORS } from 'src/helpers/constants/index'
-import { IThemeColor } from 'src/helpers/constants/index.interface'
+import type { IThemeColor } from 'src/helpers/constants/index.interface'
 import { useThemes } from 'src/stores/themes'
 
 export const ThemeSelect = () => {

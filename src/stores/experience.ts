@@ -1,8 +1,8 @@
 import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { IExperienceItem, IExperienceStore } from './experience.interface'
+import type { IExperienceItem, IExperienceStore } from './experience.interface'
 
 const addExperience =
   (set: StoreApi<IExperienceStore>['setState']) =>

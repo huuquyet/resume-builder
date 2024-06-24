@@ -1,7 +1,7 @@
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
-import React from 'react'
-import { IActivityTab, IAllActivityTabs } from '../ActivitiesLayout'
+import type React from 'react'
+import type { IActivityTab, IAllActivityTabs } from '../ActivitiesLayout'
 
 const BasicHeader = ({
   activeTab,

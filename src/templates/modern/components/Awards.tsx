@@ -1,6 +1,6 @@
 import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
 import { dateParser } from 'src/helpers/utils'
-import { IAwards } from 'src/stores/index.interface'
+import type { IAwards } from 'src/stores/index.interface'
 import { SectionHeading } from '../atoms/SectionHeading'
 import { SectionList } from '../atoms/SectionList'
 import { SectionSubtitle } from '../atoms/SectionSubtitle'
