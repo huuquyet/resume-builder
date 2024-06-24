@@ -21,4 +21,4 @@ Resume Builder works best on a desktop.
 
 ## Running the environment locally or in Docker
 
-Run the environment locally or in Docker by following the instructions at [Running the environment](RUN_ENVIRONMENT.MD).
+Run the environment locally or in Docker by following the instructions at [Running the environment](./RUN_ENVIRONMENT.MD).

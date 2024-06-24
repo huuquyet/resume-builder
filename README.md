@@ -22,7 +22,7 @@ https://e-resume.vercel.app
 
 [Resume Builder](https://e-resume.vercel.app) is an open source application where one can effectively build a single page professional resume.
 
-Visit our [User Guide](USER_GUIDE.md) to start building!
+Visit our [User Guide](./.github/USER_GUIDE.md) to start building!
 
 Features:
 
@@ -37,7 +37,7 @@ Learn more about our design in the [*E-Resume — Build a professional resume: D
 
 ## Contributing Guide
 
-If you are interested in contributing (fixing bugs, impoving features, or creating a resume template), please refer to [Contributing Guide](./CONTRIBUTING.md).
+If you are interested in contributing (fixing bugs, impoving features, or creating a resume template), please refer to [Contributing Guide](./.github/CONTRIBUTING.md).
 
 ## Report Bugs and Feature Requests
 

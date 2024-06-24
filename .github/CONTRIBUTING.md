@@ -1,11 +1,11 @@
 # Contributing
 
-Review the [Code of Conduct](CODE_OF_CONDUCT.md).
+Review the [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## Where to start
-View [issues tagged with the *Good First Issues* label](https://github.com/sadanandpai/resume-builder/labels/good%20first%20issue) to find good first feature requests and bugs to fix.
+View [issues tagged with the *Good First Issues* label](https://github.com/huuquyet/resume-builder/labels/good%20first%20issue) to find good first feature requests and bugs to fix.
 
-Visit https://github.com/sadanandpai/resume-builder/issues to view all issues.
+Visit https://github.com/huuquyet/resume-builder/issues to view all issues.
 
 --- 
 
@@ -13,13 +13,13 @@ Visit https://github.com/sadanandpai/resume-builder/issues to view all issues.
 
 ### Running the environment locally or in Docker
 
-Run the environment locally or in Docker by following the instructions at [Running the environment](RUN_ENVIRONMENT.MD).
+Run the environment locally or in Docker by following the instructions at [Running the environment](./ENVIRONMENT.MD).
 
 ---
 
 ### Creating a template
 
-TODO(sadanandpai): Per issue https://github.com/sadanandpai/resume-builder/issues/175, add instructions for how to create a template.
+TODO(huuquyet): Per issue https://github.com/huuquyet/resume-builder/issues/175, add instructions for how to create a template.
 
 ---
 
@@ -32,7 +32,7 @@ TODO(sadanandpai): Per issue https://github.com/sadanandpai/resume-builder/issue
     ```
 1. Install the dependencies
     ```
-    $ yarn install
+    $ bun install
     ```
 1. Check out a new branch based and name it to what you intend to do:
     ```
@@ -40,7 +40,7 @@ TODO(sadanandpai): Per issue https://github.com/sadanandpai/resume-builder/issue
     ```
 1. Run the project
     ```
-    $ yarn dev
+    $ bun dev
     ```
 1. Commit your changes
 
