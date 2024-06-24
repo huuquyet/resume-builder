@@ -1,11 +1,11 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import create, { GetState, SetState } from 'zustand'
+import { StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { IAwardItem, IAwardsStore } from './awards.interface'
 
 const addAward =
-  (set: SetState<IAwardsStore>) =>
+  (set: StoreApi<IAwardsStore>['setState']) =>
   ({ title, awarder, date, summary, id }: IAwardItem) =>
     set(
       produce((state: IAwardsStore) => {
@@ -19,22 +19,22 @@ const addAward =
       })
     )
 
-const removeAward = (set: SetState<IAwardsStore>) => (index: number) =>
+const removeAward = (set: StoreApi<IAwardsStore>['setState']) => (index: number) =>
   set((state) => ({
     awards: state.awards.slice(0, index).concat(state.awards.slice(index + 1)),
   }))
 
-const setAllAwards = (set: SetState<IAwardsStore>) => (values: IAwardItem[]) => {
+const setAllAwards = (set: StoreApi<IAwardsStore>['setState']) => (values: IAwardItem[]) => {
   set({
     awards: values,
   })
 }
 
-const getAllAwards = (get: GetState<IAwardsStore>) => (index: number) => {
+const getAllAwards = (get: StoreApi<IAwardsStore>['getState']) => (index: number) => {
   return get().awards[index]
 }
 
-const onMoveUp = (set: SetState<IAwardsStore>) => (index: number) => {
+const onMoveUp = (set: StoreApi<IAwardsStore>['setState']) => (index: number) => {
   set(
     produce((state: IAwardsStore) => {
       if (index > 0) {
@@ -45,7 +45,7 @@ const onMoveUp = (set: SetState<IAwardsStore>) => (index: number) => {
     })
   )
 }
-const onMoveDown = (set: SetState<IAwardsStore>) => (index: number) => {
+const onMoveDown = (set: StoreApi<IAwardsStore>['setState']) => (index: number) => {
   set(
     produce((state: IAwardsStore) => {
       const totalExp = state.awards.length
@@ -58,15 +58,16 @@ const onMoveDown = (set: SetState<IAwardsStore>) => (index: number) => {
   )
 }
 
-const updateAward = (set: SetState<IAwardsStore>) => (index: number, updatedInfo: IAwardItem) => {
-  set(
-    produce((state: IAwardsStore) => {
-      state.awards[index] = updatedInfo
-    })
-  )
-}
+const updateAward =
+  (set: StoreApi<IAwardsStore>['setState']) => (index: number, updatedInfo: IAwardItem) => {
+    set(
+      produce((state: IAwardsStore) => {
+        state.awards[index] = updatedInfo
+      })
+    )
+  }
 
-export const useAwards = create<IAwardsStore>(
+export const useAwards = create<IAwardsStore>()(
   persist(
     (set, get) => ({
       awards: resumeData.awards,

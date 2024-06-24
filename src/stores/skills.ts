@@ -1,11 +1,11 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import create, { GetState, SetState } from 'zustand'
+import { StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { ISkillItem, ISkillState } from './skill.interface'
 
 const addSkill =
-  (set: SetState<ISkillState>) =>
+  (set: StoreApi<ISkillState>['setState']) =>
   ({ name, level }: ISkillItem) =>
     set(
       produce((state: ISkillState) => {
@@ -13,21 +13,26 @@ const addSkill =
       })
     )
 
-const removeSkill = (set: SetState<ISkillState>) => (index: number) =>
+const removeSkill = (set: StoreApi<ISkillState>['setState']) => (index: number) =>
   set(
     produce((state: ISkillState) => {
       state.values.splice(index, 1)
     })
   )
 
-const setSkills = (set: SetState<ISkillState>) => (values: ISkillItem[]) => set(() => ({ values }))
+const setSkills = (set: StoreApi<ISkillState>['setState']) => (values: ISkillItem[]) =>
+  set(() => ({ values }))
 
-const getSkills = (get: GetState<ISkillState>) => () => (get().isEnabled ? get().values : [])
+const getSkills = (get: StoreApi<ISkillState>['getState']) => () =>
+  get().isEnabled ? get().values : []
 
-const setIsEnabled = (set: SetState<ISkillState>) => (isEnabled: boolean) =>
+const setIsEnabled = (set: StoreApi<ISkillState>['setState']) => (isEnabled: boolean) =>
   set(() => ({ isEnabled }))
 
-const getMethods = (set: SetState<ISkillState>, get: GetState<ISkillState>) => ({
+const getMethods = (
+  set: StoreApi<ISkillState>['setState'],
+  get: StoreApi<ISkillState>['getState']
+) => ({
   get: getSkills(get),
   add: addSkill(set),
   remove: removeSkill(set),
@@ -35,7 +40,7 @@ const getMethods = (set: SetState<ISkillState>, get: GetState<ISkillState>) => (
   setIsEnabled: setIsEnabled(set),
 })
 
-export const useLanguages = create<ISkillState>(
+export const useLanguages = create<ISkillState>()(
   persist(
     (set, get) => ({
       title: 'Languages',
@@ -49,7 +54,7 @@ export const useLanguages = create<ISkillState>(
   )
 )
 
-export const useFrameworks = create<ISkillState>(
+export const useFrameworks = create<ISkillState>()(
   persist(
     (set, get) => ({
       title: 'Frameworks',
@@ -63,7 +68,7 @@ export const useFrameworks = create<ISkillState>(
   )
 )
 
-export const useTechnologies = create<ISkillState>(
+export const useTechnologies = create<ISkillState>()(
   persist(
     (set, get) => ({
       title: 'Technologies',
@@ -77,7 +82,7 @@ export const useTechnologies = create<ISkillState>(
   )
 )
 
-export const useLibraries = create<ISkillState>(
+export const useLibraries = create<ISkillState>()(
   persist(
     (set, get) => ({
       title: 'Libraries',
@@ -91,7 +96,7 @@ export const useLibraries = create<ISkillState>(
   )
 )
 
-export const useDatabases = create<ISkillState>(
+export const useDatabases = create<ISkillState>()(
   persist(
     (set, get) => ({
       title: 'Databases',
@@ -105,7 +110,7 @@ export const useDatabases = create<ISkillState>(
   )
 )
 
-export const usePractices = create<ISkillState>(
+export const usePractices = create<ISkillState>()(
   persist(
     (set, get) => ({
       title: 'Practices',
@@ -119,7 +124,7 @@ export const usePractices = create<ISkillState>(
   )
 )
 
-export const useTools = create<ISkillState>(
+export const useTools = create<ISkillState>()(
   persist(
     (set, get) => ({
       title: 'Tools',

@@ -1,11 +1,11 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import create, { GetState, SetState } from 'zustand'
+import { StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { IVolunteeringItem, IVolunteeringStore } from './volunteering.interface'
 
 const addVolunteering =
-  (set: SetState<IVolunteeringStore>) =>
+  (set: StoreApi<IVolunteeringStore>['setState']) =>
   ({
     organization,
     position,
@@ -33,7 +33,7 @@ const addVolunteering =
       })
     )
 
-const removeVolunteeringExp = (set: SetState<IVolunteeringStore>) => (index: number) =>
+const removeVolunteeringExp = (set: StoreApi<IVolunteeringStore>['setState']) => (index: number) =>
   set((state) => ({
     volunteeredExps: state.volunteeredExps
       .slice(0, index)
@@ -41,14 +41,15 @@ const removeVolunteeringExp = (set: SetState<IVolunteeringStore>) => (index: num
   }))
 
 const setVolunteeringExps =
-  (set: SetState<IVolunteeringStore>) => (values: IVolunteeringItem[]) => {
+  (set: StoreApi<IVolunteeringStore>['setState']) => (values: IVolunteeringItem[]) => {
     set({
       volunteeredExps: values,
     })
   }
 
 const updatedVolunteeringExp =
-  (set: SetState<IVolunteeringStore>) => (index: number, updatedInfo: IVolunteeringItem) => {
+  (set: StoreApi<IVolunteeringStore>['setState']) =>
+  (index: number, updatedInfo: IVolunteeringItem) => {
     set(
       produce((state: IVolunteeringStore) => {
         state.volunteeredExps[index] = updatedInfo
@@ -56,11 +57,11 @@ const updatedVolunteeringExp =
     )
   }
 
-const getVolunteeringExp = (get: GetState<IVolunteeringStore>) => (index: number) => {
+const getVolunteeringExp = (get: StoreApi<IVolunteeringStore>['getState']) => (index: number) => {
   return get().volunteeredExps[index]
 }
 
-const onMoveUp = (set: SetState<IVolunteeringStore>) => (index: number) => {
+const onMoveUp = (set: StoreApi<IVolunteeringStore>['setState']) => (index: number) => {
   set(
     produce((state: IVolunteeringStore) => {
       if (index > 0) {
@@ -72,7 +73,7 @@ const onMoveUp = (set: SetState<IVolunteeringStore>) => (index: number) => {
   )
 }
 
-const onMoveDown = (set: SetState<IVolunteeringStore>) => (index: number) => {
+const onMoveDown = (set: StoreApi<IVolunteeringStore>['setState']) => (index: number) => {
   set(
     produce((state: IVolunteeringStore) => {
       const totalExp = state.volunteeredExps.length
@@ -85,7 +86,7 @@ const onMoveDown = (set: SetState<IVolunteeringStore>) => (index: number) => {
   )
 }
 
-export const useVoluteeringStore = create<IVolunteeringStore>(
+export const useVoluteeringStore = create<IVolunteeringStore>()(
   persist(
     (set, get) => ({
       volunteeredExps: resumeData.volunteer,

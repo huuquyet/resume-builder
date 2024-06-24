@@ -1,11 +1,11 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import create, { GetState, SetState } from 'zustand'
+import { StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { IEducationItem, IEducationStore } from './education.interface'
 
 const addEducation =
-  (set: SetState<IEducationStore>) =>
+  (set: StoreApi<IEducationStore>['setState']) =>
   ({
     institution,
     studyType,
@@ -35,22 +35,22 @@ const addEducation =
       })
     )
 
-const removeEducation = (set: SetState<IEducationStore>) => (index: number) =>
+const removeEducation = (set: StoreApi<IEducationStore>['setState']) => (index: number) =>
   set((state) => ({
     academics: state.academics.slice(0, index).concat(state.academics.slice(index + 1)),
   }))
 
-const setEducation = (set: SetState<IEducationStore>) => (values: IEducationItem[]) => {
+const setEducation = (set: StoreApi<IEducationStore>['setState']) => (values: IEducationItem[]) => {
   set({
     academics: values,
   })
 }
 
-const getEducation = (get: GetState<IEducationStore>) => (index: number) => {
+const getEducation = (get: StoreApi<IEducationStore>['getState']) => (index: number) => {
   return get().academics[index]
 }
 
-const onMoveUp = (set: SetState<IEducationStore>) => (index: number) => {
+const onMoveUp = (set: StoreApi<IEducationStore>['setState']) => (index: number) => {
   set(
     produce((state: IEducationStore) => {
       if (index > 0) {
@@ -61,7 +61,7 @@ const onMoveUp = (set: SetState<IEducationStore>) => (index: number) => {
     })
   )
 }
-const onMoveDown = (set: SetState<IEducationStore>) => (index: number) => {
+const onMoveDown = (set: StoreApi<IEducationStore>['setState']) => (index: number) => {
   set(
     produce((state: IEducationStore) => {
       const totalExp = state.academics.length
@@ -75,7 +75,7 @@ const onMoveDown = (set: SetState<IEducationStore>) => (index: number) => {
 }
 
 const updateEducation =
-  (set: SetState<IEducationStore>) => (index: number, updatedInfo: IEducationItem) => {
+  (set: StoreApi<IEducationStore>['setState']) => (index: number, updatedInfo: IEducationItem) => {
     set(
       produce((state: IEducationStore) => {
         state.academics[index] = updatedInfo
@@ -83,7 +83,7 @@ const updateEducation =
     )
   }
 
-export const useEducations = create<IEducationStore>(
+export const useEducations = create<IEducationStore>()(
   persist(
     (set, get) => ({
       academics: resumeData.education,
