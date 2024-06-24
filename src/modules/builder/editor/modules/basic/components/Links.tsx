@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField'
-import React, { ChangeEvent, Fragment, useEffect, useState } from 'react'
+import React, { type ChangeEvent, Fragment, useEffect, useState } from 'react'
 
 const SUPPORTED_NETWORKS = {
   linkedin: 'linkedin',

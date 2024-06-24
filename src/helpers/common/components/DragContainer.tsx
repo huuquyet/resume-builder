@@ -1,6 +1,6 @@
 import {
   DndContext,
-  DragEndEvent,
+  type DragEndEvent,
   KeyboardSensor,
   PointerSensor,
   closestCenter,
@@ -14,7 +14,7 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
-import { ISkillItem } from 'src/stores/skill.interface'
+import type { ISkillItem } from 'src/stores/skill.interface'
 
 export default function DragContainer({
   items,

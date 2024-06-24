@@ -1,4 +1,4 @@
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 
 interface IZoomStore {
   zoom: number

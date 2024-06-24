@@ -1,9 +1,9 @@
-import { ReactNode, useMemo } from 'react'
-import { IAwardItem } from 'src/stores/awards.interface'
-import { IEducationItem } from 'src/stores/education.interface'
-import { IExperienceItem } from 'src/stores/experience.interface'
-import { ISkillItem } from 'src/stores/skill.interface'
-import { IVolunteeringItem } from 'src/stores/volunteering.interface'
+import { type ReactNode, useMemo } from 'react'
+import type { IAwardItem } from 'src/stores/awards.interface'
+import type { IEducationItem } from 'src/stores/education.interface'
+import type { IExperienceItem } from 'src/stores/experience.interface'
+import type { ISkillItem } from 'src/stores/skill.interface'
+import type { IVolunteeringItem } from 'src/stores/volunteering.interface'
 
 export const SectionValidator = ({
   value,

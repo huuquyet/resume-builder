@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import Skill from 'src/modules/builder/editor/modules/skills/components/Skill'
-import { ISkillItem } from 'src/stores/skill.interface'
+import type { ISkillItem } from 'src/stores/skill.interface'
 
 let items = [
   { name: 'JavaScript', level: 60 },

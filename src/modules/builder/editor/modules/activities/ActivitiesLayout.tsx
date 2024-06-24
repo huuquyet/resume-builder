@@ -1,4 +1,4 @@
-import { Fragment, SyntheticEvent, useState } from 'react'
+import { Fragment, type SyntheticEvent, useState } from 'react'
 import Achievements from './components/Achievements'
 import BasicHeader from './components/BasicHeader'
 import BasicPanel from './components/BasicPanel'

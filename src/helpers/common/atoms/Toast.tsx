@@ -1,4 +1,4 @@
-import Slide, { SlideProps } from '@mui/material/Slide'
+import Slide, { type SlideProps } from '@mui/material/Slide'
 import Snackbar from '@mui/material/Snackbar'
 
 type TransitionProps = Omit<SlideProps, 'direction'>

@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField'
-import React, { ChangeEvent, Fragment } from 'react'
+import React, { type ChangeEvent, Fragment } from 'react'
 
 const Contacts = ({
   basicTabs,

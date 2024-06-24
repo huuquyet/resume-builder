@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { ITemplate, IThemeColor } from './index.interface'
+import type { ITemplate, IThemeColor } from './index.interface'
 
 export const SYSTEM_COLORS: IThemeColor[] = [
   {

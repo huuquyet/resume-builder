@@ -1,8 +1,8 @@
 import { produce } from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { IEducationItem, IEducationStore } from './education.interface'
+import type { IEducationItem, IEducationStore } from './education.interface'
 
 const addEducation =
   (set: StoreApi<IEducationStore>['setState']) =>

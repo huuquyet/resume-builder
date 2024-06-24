@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 
 import Image from 'next/image'
 import { StyledButton } from '../atoms'
-import { INavMenuItemProps } from './MenuItem.interface'
+import type { INavMenuItemProps } from './MenuItem.interface'
 import { NavMenuPopover } from './NavMenuPopover'
 
 export const NavMenuItem = ({ caption, popoverChildren }: INavMenuItemProps) => {

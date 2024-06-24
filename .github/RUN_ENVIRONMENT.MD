@@ -8,7 +8,7 @@
     ```
 1. Install the dependencies
     ```
-    $ yarn install
+    $ bun install
     ```
     or
 
@@ -18,13 +18,13 @@
 1. Run the project
 
     ```
-    $ yarn dev
+    $ bun dev
     ```
 
     or
 
     ```
-    $ npm run dev
+    $ yarn && yarn dev
     ```
 1. Visit http://localhost:3000/ on your browser
 

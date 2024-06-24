@@ -6,7 +6,7 @@ import TimelineItem from '@mui/lab/TimelineItem'
 import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
 import { dateParser } from 'src/helpers/utils'
-import { IExperienceItem } from 'src/stores/experience.interface'
+import type { IExperienceItem } from 'src/stores/experience.interface'
 
 export default function Work({ work }: { work: IExperienceItem[] }) {
   return (

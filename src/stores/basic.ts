@@ -1,7 +1,7 @@
 import resumeData from 'src/helpers/constants/resume-data.json'
-import { StoreApi, create } from 'zustand'
+import { type StoreApi, create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { IBasicDetailsItem, IBasicDetailsStore } from './basic.interface'
+import type { IBasicDetailsItem, IBasicDetailsStore } from './basic.interface'
 
 const onChangeText =
   (set: StoreApi<IBasicDetailsStore>['setState']) => (values: IBasicDetailsItem) =>

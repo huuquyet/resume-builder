@@ -18,10 +18,14 @@ const EditSection = ({ section, onLinkClick }: IEditSection) => {
   return (
     <motion.div initial={animation.initial} animate={animation.animate}>
       <div>
-        <a className="flex items-center mb-6 mt-4 cursor-pointer" onClick={() => onLinkClick('')}>
+        <button
+          type="button"
+          className="flex items-center mb-6 mt-4 cursor-pointer"
+          onClick={() => onLinkClick('')}
+        >
           <Image src="/icons/left-arrow.svg" alt="back" width={12} height={16} />
           <span className="pl-2 ml-2 text-2xl font-bold">{section.title}</span>
-        </a>
+        </button>
       </div>
       <section.component />
     </motion.div>

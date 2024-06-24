@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useRef, useState } from 'react'
+import { type ChangeEvent, useCallback, useRef, useState } from 'react'
 import {
   useDatabases,
   useFrameworks,

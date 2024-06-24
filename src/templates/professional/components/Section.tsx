@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import Color from 'color'
-import React from 'react'
+import type React from 'react'
 import { socialIcons } from 'src/helpers/icons'
-import { IProfiles } from 'src/stores/basic.interface'
+import type { IProfiles } from 'src/stores/basic.interface'
 
 const SectionHolder = styled.div`
   border: 1px solid ${(props) => Color(props.theme.highlighterColor).alpha(0.75).toString()};

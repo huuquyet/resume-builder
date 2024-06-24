@@ -1,11 +1,12 @@
 import TextField from '@mui/material/TextField'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import React, { ChangeEvent, Fragment, useCallback } from 'react'
+import type React from 'react'
+import { type ChangeEvent, Fragment, useCallback } from 'react'
 
 import { RichtextEditor } from 'src/helpers/common/components/richtext'
 import { DATE_PICKER_FORMAT } from 'src/helpers/constants'
 import { useAwards } from 'src/stores/awards'
-import { IAwardItem } from 'src/stores/awards.interface'
+import type { IAwardItem } from 'src/stores/awards.interface'
 
 interface IAwardComp {
   awardInfo: IAwardItem
