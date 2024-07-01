@@ -9,7 +9,7 @@ export interface IAwardItem {
 export interface IAwardsStore {
   awards: IAwardItem[]
   add: (newEducation: IAwardItem) => void
-  get: (index: number) => void
+  get: (index: number) => IAwardItem
   remove: (index: number) => void
   reset: (values: IAwardItem[]) => void
   onmoveup: (index: number) => void

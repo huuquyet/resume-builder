@@ -1,6 +1,5 @@
 import Tooltip from '@mui/material/Tooltip'
 import Image from 'next/image'
-import { resetResumeStore } from 'src/stores/useResumeStore'
 import EditorLayout from './editor/EditorLayout'
 import NavBarLayout from './nav-bar/NavBarLayout'
 import { ResumeLayout } from './resume/ResumeLayout'
@@ -27,7 +26,7 @@ const BuilderLayout = () => {
       <footer className="print:hidden">
         <Tooltip title="Share feedback">
           <a
-            href="https://www.facebook.com/nguyennhan09cntt"
+            href="https://forms.gle/YmpXEZLk6LYdnqet7"
             target="_blank"
             rel="noreferrer"
             className="fixed w-14 h-14 rounded-full bottom-4 left-4 flex justify-center items-center bg-resume-50 shadow-level-4dp"

@@ -1,9 +1,7 @@
 import 'jodit/es2021/jodit.min.css'
 import { memo, useEffect, useRef, useState } from 'react'
-
-import { LinkPlugin } from './plugins/link'
-
 import styles from './jodit.module.css'
+import { LinkPlugin } from './plugins/link'
 
 interface IRichtext {
   label: string
@@ -41,7 +39,6 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
       }
       initEditor()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
   useEffect(() => {

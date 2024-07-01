@@ -1,20 +1,33 @@
 import Image from 'next/image'
-import Maybe from 'src/helpers/common/Maybe'
 
 const persons = [
   {
-    name: 'Nhan Nguyen (xGastly)',
-    role: 'Backend developer',
-    avatar: 'https://avatars.githubusercontent.com/u/29857081?v=4',
+    name: 'Sadanand Pai',
+    role: 'Frontend developer',
+    avatar: 'https://avatars.githubusercontent.com/u/12962887?v=4',
     github: 'https://github.com/sadanandpai',
-    facebook: 'https://www.facebook.com/nguyennhan09cntt',
+    linkedin: 'https://www.linkedin.com/in/sadanandpai/',
   },
   {
-    name: 'Chang Chang (xGastly)',
+    name: 'Gopalakrishnan',
     role: 'Frontend developer',
-    avatar: '/icons/changchang.jpg',
-    github: '',
-    facebook: '',
+    avatar: 'https://avatars.githubusercontent.com/u/22369081?v=4',
+    github: 'https://github.com/gopal1996',
+    linkedin: 'https://www.linkedin.com/in/gopal1996',
+  },
+  {
+    name: 'Vivek G',
+    role: 'Product designer, half developer',
+    avatar: 'https://avatars.githubusercontent.com/u/26523871?v=4',
+    github: 'https://github.com/yakshaG',
+    linkedin: 'https://www.linkedin.com/in/vivek-g-india',
+  },
+  {
+    name: 'Siva K',
+    role: 'Frontend developer',
+    avatar: 'https://avatars.githubusercontent.com/u/60533560?v=4',
+    github: 'https://github.com/siva-kannan3',
+    linkedin: 'https://www.linkedin.com/in/siva-kannan3/',
   },
 ]
 
@@ -24,19 +37,14 @@ const PersonCard = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-const ProfileSocial = ({ github, facebook }: { github: string; facebook: string }) => (
+const ProfileSocial = ({ github, linkedin }: { github: string; linkedin: string }) => (
   <div className="flex gap-4">
-    <Maybe test={!!github}>
-      <a href={github} target="_blank" rel="noreferrer">
-        <Image src="/icons/github.svg" alt="github" width="24" height="24" />
-      </a>
-    </Maybe>
-
-    <Maybe test={!!facebook}>
-      <a href={facebook} target="_blank" rel="noreferrer">
-        <Image src="/icons/facebook.svg" alt="facebook" width="24" height="24" />
-      </a>
-    </Maybe>
+    <a href={github} target="_blank" rel="noreferrer">
+      <Image src="/icons/github.svg" alt="github" width="24" height="24" />
+    </a>
+    <a href={linkedin} target="_blank" rel="noreferrer">
+      <Image src="/icons/linkedin.svg" alt="linkedin" width="24" height="24" />
+    </a>
   </div>
 )
 
@@ -54,7 +62,7 @@ export default function Person() {
           />
           <p className="text-resume-800 mt-4 font-bold">{person.name}</p>
           <p className="text-resume-400 mb-6">{person.role}</p>
-          <ProfileSocial github={person.github} facebook={person.facebook} />
+          <ProfileSocial github={person.github} linkedin={person.linkedin} />
         </PersonCard>
       ))}
     </>

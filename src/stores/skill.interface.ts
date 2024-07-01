@@ -11,7 +11,7 @@ export interface ISkillState {
 
   add: ({ name, level }: { name: string; level: number }) => void
   remove: (index: number) => void
-  get: () => void
+  get: () => ISkillItem[]
   reset: (name: ISkillItem[]) => void
   setIsEnabled: (enabled: boolean) => void
 }

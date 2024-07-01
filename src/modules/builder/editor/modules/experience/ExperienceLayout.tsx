@@ -15,7 +15,6 @@ const ExperienceLayout = () => {
 
   useEffect(() => {
     setExpanded(allWorks[0]?.id)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleChange = (panel: string, isExpanded: boolean) => {

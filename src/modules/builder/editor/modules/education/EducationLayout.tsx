@@ -15,7 +15,6 @@ const EducationLayout = () => {
 
   useEffect(() => {
     setExpanded(allAcademics[0]?.id)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleChange = (panel: string, isExpanded: boolean) => {

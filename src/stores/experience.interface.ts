@@ -14,7 +14,7 @@ export interface IExperienceItem {
 export interface IExperienceStore {
   experiences: IExperienceItem[]
   add: (newExperience: IExperienceItem) => void
-  get: (index: number) => void
+  get: (index: number) => IExperienceItem
   remove: (index: number) => void
   reset: (values: IExperienceItem[]) => void
   onmoveup: (index: number) => void

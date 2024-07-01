@@ -80,7 +80,6 @@ const Links = ({
     }
     setNetworks(defaultNetworks)
     onChangeHandler(Object.values(defaultNetworks), 'profiles')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChangeHandler, basicTabs.profiles])
 
   const onURLChange = (value: string, network: string) => {

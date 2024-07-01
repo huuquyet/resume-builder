@@ -14,7 +14,7 @@ export interface IEducationItem {
 export interface IEducationStore {
   academics: IEducationItem[]
   add: (newEducation: IEducationItem) => void
-  get: (index: number) => void
+  get: (index: number) => IEducationItem
   remove: (index: number) => void
   reset: (values: IEducationItem[]) => void
   onmoveup: (index: number) => void

@@ -1,4 +1,15 @@
+import exportFromJSON from 'export-from-json'
+import Image from 'next/image'
+import Link from 'next/link'
 import { type ChangeEvent, useCallback, useRef, useState } from 'react'
+import { Toast } from 'src/helpers/common/atoms/Toast'
+import { AVAILABLE_TEMPLATES } from 'src/helpers/constants'
+import DEFAULT_RESUME_JSON from 'src/helpers/constants/resume-data.json'
+import { useActivity } from 'src/stores/activity'
+import { useAwards } from 'src/stores/awards'
+import { useBasicDetails } from 'src/stores/basic'
+import { useEducations } from 'src/stores/education'
+import { useExperiences } from 'src/stores/experience'
 import {
   useDatabases,
   useFrameworks,
@@ -8,22 +19,8 @@ import {
   useTechnologies,
   useTools,
 } from 'src/stores/skills'
-import { NavBarActions, NavBarMenu, StyledButton } from './atoms'
-
-import exportFromJSON from 'export-from-json'
-import Image from 'next/image'
-import Link from 'next/link'
-import UserAPI from 'src/helpers/api/user'
-import { Toast } from 'src/helpers/common/atoms/Toast'
-import { AVAILABLE_TEMPLATES } from 'src/helpers/constants'
-import DEFAULT_RESUME_JSON from 'src/helpers/constants/resume-data.json'
-import { useAuthContext } from 'src/helpers/context/AuthContext'
-import { useActivity } from 'src/stores/activity'
-import { useAwards } from 'src/stores/awards'
-import { useBasicDetails } from 'src/stores/basic'
-import { useEducations } from 'src/stores/education'
-import { useExperiences } from 'src/stores/experience'
 import { useVoluteeringStore } from 'src/stores/volunteering'
+import { NavBarActions, NavBarMenu, StyledButton } from './atoms'
 import { NavMenuItem } from './components/MenuItem'
 import { PrintResume } from './components/PrintResume'
 import { TemplateSelect } from './components/TemplateSelect'
@@ -34,8 +31,6 @@ const TOTAL_TEMPLATES_AVAILABLE = Object.keys(AVAILABLE_TEMPLATES).length
 const NavBarLayout = () => {
   const [openToast, setOpenToast] = useState(false)
   const fileInputRef = useRef(null)
-  const { user, setUser } = useAuthContext()
-  const [messageSave, setMessageSave] = useState('Resume data was successfully saved.')
 
   const exportResumeData = useCallback(() => {
     const updatedResumeJson = {
@@ -67,41 +62,6 @@ const NavBarLayout = () => {
       exportType,
     })
   }, [])
-
-  const handleSaveResume = useCallback(async () => {
-    const updatedResumeJson = {
-      ...DEFAULT_RESUME_JSON,
-      basics: {
-        ...DEFAULT_RESUME_JSON.basics,
-        ...useBasicDetails.getState().values,
-      },
-      work: useExperiences.getState().experiences,
-      education: useEducations.getState().academics,
-      awards: useAwards.getState().awards,
-      volunteer: useVoluteeringStore.getState().volunteeredExps,
-      skills: {
-        languages: useLanguages.getState().get(),
-        frameworks: useFrameworks.getState().get(),
-        technologies: useTechnologies.getState().get(),
-        libraries: useLibraries.getState().get(),
-        databases: useDatabases.getState().get(),
-        practices: usePractices.getState().get(),
-        tools: useTools.getState().get(),
-      },
-      activities: useActivity.getState().activities,
-    }
-
-    if (user) {
-      const { data, status } = await UserAPI.updateUserResume(user.id, updatedResumeJson)
-      if (status !== 200) {
-        setMessageSave('Data update failed.')
-      }
-    } else {
-      setMessageSave('To save data, please log in to your account.')
-    }
-
-    setOpenToast(true)
-  }, [user])
 
   const handleFileChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const fileObj = event.target.files?.[0]
@@ -171,12 +131,27 @@ const NavBarLayout = () => {
           <NavMenuItem caption="Colours" popoverChildren={<ThemeSelect />} />
         </NavBarMenu>
         <NavBarActions>
-          <StyledButton variant="text" onClick={handleSaveResume}>
-            Save
+          <StyledButton variant="text" onClick={exportResumeData}>
+            Export
           </StyledButton>
-          {/* <StyledButton variant="text" onClick={handleSaveResume}>
-            Publish
-          </StyledButton> */}
+          <StyledButton
+            variant="text"
+            onClick={() => {
+              if (fileInputRef.current) {
+                const fileElement = fileInputRef.current as HTMLInputElement
+                fileElement.click()
+              }
+            }}
+          >
+            Import{' '}
+            <input
+              type="file"
+              hidden
+              ref={fileInputRef}
+              accept="application/json"
+              onChange={handleFileChange}
+            />
+          </StyledButton>
           <PrintResume />
         </NavBarActions>
       </div>
@@ -185,7 +160,7 @@ const NavBarLayout = () => {
         onClose={() => {
           setOpenToast(false)
         }}
-        content={messageSave}
+        content={'Resume data was successfully imported.'}
       />
     </nav>
   )

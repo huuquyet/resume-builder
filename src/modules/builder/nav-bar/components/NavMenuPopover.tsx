@@ -1,5 +1,4 @@
 import Popover from '@mui/material/Popover'
-
 import type { INavMenuPopoverProps } from './NavMenuPopover.interface'
 
 export const NavMenuPopover = ({

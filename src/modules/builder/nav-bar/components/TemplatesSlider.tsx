@@ -1,12 +1,9 @@
-// eslint-disable-next-line import/no-unresolved
 import '@splidejs/splide/css'
-
+import { Global } from '@emotion/react'
 import type Splide from '@splidejs/splide'
 import { Splide as SplideCore } from '@splidejs/splide'
-import { useEffect, useRef } from 'react'
-
-import { Global } from '@emotion/react'
 import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 import { AVAILABLE_TEMPLATES } from 'src/helpers/constants'
 import { useTemplates } from 'src/stores/useTemplate'
 
