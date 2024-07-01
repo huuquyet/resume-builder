@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
-
 import styled from '@emotion/styled'
+import { useContext } from 'react'
 import { SectionValidator } from 'src/helpers/common/components/ValidSectionRenderer'
 import { StateContext } from 'src/modules/builder/resume/ResumeLayout'
 import AboutMe from './components/AboutMe'

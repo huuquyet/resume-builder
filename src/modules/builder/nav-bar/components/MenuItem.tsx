@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+import { type MouseEvent, useState } from 'react'
 import { StyledButton } from '../atoms'
 import type { INavMenuItemProps } from './MenuItem.interface'
 import { NavMenuPopover } from './NavMenuPopover'
@@ -7,7 +7,7 @@ import { NavMenuPopover } from './NavMenuPopover'
 export const NavMenuItem = ({ caption, popoverChildren }: INavMenuItemProps) => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
   }
 
@@ -16,7 +16,7 @@ export const NavMenuItem = ({ caption, popoverChildren }: INavMenuItemProps) => 
   }
 
   return (
-    <Fragment>
+    <>
       <StyledButton
         variant="text"
         onClick={handleClick}
@@ -36,6 +36,6 @@ export const NavMenuItem = ({ caption, popoverChildren }: INavMenuItemProps) => 
       <NavMenuPopover isOpen={!!anchorEl} anchorElement={anchorEl} id="mark" onClose={handleClose}>
         {popoverChildren}
       </NavMenuPopover>
-    </Fragment>
+    </>
   )
 }

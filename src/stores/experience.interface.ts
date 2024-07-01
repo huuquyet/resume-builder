@@ -1,10 +1,12 @@
+import type { Dayjs } from 'dayjs'
+
 export interface IExperienceItem {
   id: string
   name: string
   position: string
   url: string
-  startDate: string | null
-  endDate: string | null
+  startDate: Dayjs | null
+  endDate: Dayjs | null
   years: string
   summary: string
   highlights: string[]

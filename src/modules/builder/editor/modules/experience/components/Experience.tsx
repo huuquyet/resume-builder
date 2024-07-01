@@ -1,8 +1,6 @@
 import TextField from '@mui/material/TextField'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import type React from 'react'
-import { type ChangeEvent, Fragment, useCallback } from 'react'
-
+import { type ChangeEvent, type FC, useCallback } from 'react'
 import { SwitchWidget } from 'src/helpers/common/atoms/Switch'
 import { RichtextEditor } from 'src/helpers/common/components/richtext'
 import { DATE_PICKER_FORMAT } from 'src/helpers/constants'
@@ -14,7 +12,7 @@ interface IExperienceProps {
   currentIndex: number
 }
 
-const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }) => {
+const Experience: FC<IExperienceProps> = ({ experienceInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
     (name: string, value: any) => {
       const currentExpInfo = { ...experienceInfo }
@@ -27,17 +25,13 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
           currentExpInfo.position = value
           break
         case 'startDate':
-          if (value?.isValid()) {
-            currentExpInfo.startDate = value
-          }
+          currentExpInfo.startDate = value
           break
         case 'isWorkingHere':
           currentExpInfo.isWorkingHere = value
           break
         case 'endDate':
-          if (value?.isValid()) {
-            currentExpInfo.endDate = value
-          }
+          currentExpInfo.endDate = value
           break
         case 'years':
           currentExpInfo.years = value
@@ -61,7 +55,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
   )
 
   return (
-    <Fragment>
+    <>
       <TextField
         label="Comapany name"
         variant="filled"
@@ -144,7 +138,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         onChange={onSummaryChange}
         name="summary"
       />
-    </Fragment>
+    </>
   )
 }
 

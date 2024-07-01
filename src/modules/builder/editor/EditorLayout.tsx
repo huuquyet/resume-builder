@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { OutlinedButton } from 'src/helpers/common/atoms/Buttons'
 import ErrorBoundary from 'src/helpers/common/components/ErrorBoundary'
 import { headers } from 'src/helpers/constants/editor-data'

@@ -1,7 +1,7 @@
-import React, { Component, type ErrorInfo, type ReactNode } from 'react'
+import { Component, type ErrorInfo, type ReactNode } from 'react'
 
 interface IErrorProps {
-  children: ReactNode
+  children?: ReactNode
   fallbackComponent?: () => JSX.Element
 }
 

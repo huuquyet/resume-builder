@@ -14,6 +14,7 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
+import type { ReactNode } from 'react'
 import type { ISkillItem } from 'src/stores/skill.interface'
 
 export default function DragContainer({
@@ -23,7 +24,7 @@ export default function DragContainer({
 }: {
   items: ISkillItem[]
   setItems: (v: ISkillItem[]) => void
-  children: JSX.Element | JSX.Element[]
+  children?: ReactNode
 }) {
   const sensors = useSensors(
     useSensor(PointerSensor),

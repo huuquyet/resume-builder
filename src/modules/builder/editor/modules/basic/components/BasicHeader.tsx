@@ -1,5 +1,6 @@
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
+import type { SyntheticEvent } from 'react'
 import type React from 'react'
 
 const BasicHeader = ({
@@ -8,7 +9,7 @@ const BasicHeader = ({
   tabTitles,
 }: {
   activeTab: number
-  changeActiveTab: (event: React.SyntheticEvent, activeTab: number) => void
+  changeActiveTab: (event: SyntheticEvent, activeTab: number) => void
   tabTitles: string[]
 }) => {
   return (

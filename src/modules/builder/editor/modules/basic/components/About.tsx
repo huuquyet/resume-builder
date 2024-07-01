@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react'
 import { RichtextEditor } from 'src/helpers/common/components/richtext'
 
 const About = ({
@@ -9,7 +8,7 @@ const About = ({
   onChangeHandler: (value: any, key: string) => void
 }) => {
   return (
-    <Fragment>
+    <>
       <RichtextEditor
         label="About me"
         value={basicTabs.summary}
@@ -26,7 +25,7 @@ const About = ({
         }}
         name="objective"
       />
-    </Fragment>
+    </>
   )
 }
 

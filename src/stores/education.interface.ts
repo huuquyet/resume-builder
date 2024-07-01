@@ -1,11 +1,13 @@
+import type { Dayjs } from 'dayjs'
+
 export interface IEducationItem {
   institution: string
   url: string
   studyType: string
   area: string
-  startDate: string | null
+  startDate: Dayjs | null
+  endDate: Dayjs | null
   isStudyingHere: boolean
-  endDate: string | null
   score: string
   courses: string[]
   id: string

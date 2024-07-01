@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import type { PropsWithChildren } from 'react'
 
 const persons = [
   {
@@ -31,7 +32,7 @@ const persons = [
   },
 ]
 
-const PersonCard = ({ children }: { children: React.ReactNode }) => (
+const PersonCard = ({ children }: PropsWithChildren) => (
   <div className="transition ease-in-out delay-100 duration-300 px-6 py-8 flex flex-col items-center text-center shadow hover:shadow-xl rounded-xl border-2 border-resume-50 hover:border-resume-100">
     {children}
   </div>

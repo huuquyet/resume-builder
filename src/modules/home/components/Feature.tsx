@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { PropsWithChildren } from 'react'
 
 function FeatureSection() {
   return (
@@ -43,7 +44,7 @@ function FeatureSection() {
   )
 }
 
-const FeatureCard = ({ children }: { children: React.ReactNode }) => {
+const FeatureCard = ({ children }: PropsWithChildren) => {
   return (
     <div
       className={`transition ease-in-out delay-100 duration-300 bg-resume-100 hover:bg-resume-500 text-resume-800
@@ -56,7 +57,7 @@ const FeatureCard = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-const CardPinnnedIcon = ({ children }: { children: React.ReactNode }) => {
+const CardPinnnedIcon = ({ children }: PropsWithChildren) => {
   return (
     <div className="backdrop-blur-2xl bg-resume-100 rounded-full p-2 shadow-level-hard absolute right-0 top-0 -mt-4 -mr-1">
       {children}

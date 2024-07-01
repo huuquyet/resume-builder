@@ -1,3 +1,4 @@
+import ResumeData from 'src/helpers/constants/resume-data.json'
 import {
   useDatabases,
   useFrameworks,
@@ -7,8 +8,6 @@ import {
   useTechnologies,
   useTools,
 } from 'src/stores/skills'
-
-import ResumeData from 'src/helpers/constants/resume-data.json'
 import { useActivity } from './activity'
 import { useAwards } from './awards'
 import { useBasicDetails } from './basic'

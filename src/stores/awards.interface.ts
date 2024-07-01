@@ -1,7 +1,9 @@
+import type { Dayjs } from 'dayjs'
+
 export interface IAwardItem {
   title: string
   awarder: string
-  date: string | null
+  date: Dayjs | null
   summary: string
   id: string
 }

@@ -1,4 +1,5 @@
 import { Button } from '@mui/material'
+import type { ReactNode } from 'react'
 
 export const OutlinedButton = ({
   onClick,
@@ -6,7 +7,7 @@ export const OutlinedButton = ({
   disabled = false,
 }: {
   onClick: () => void
-  children: React.ReactNode | string
+  children?: ReactNode
   disabled?: boolean
 }) => (
   <Button variant="outlined" onClick={onClick} className="text-resume-900" disabled={disabled}>
@@ -20,7 +21,7 @@ export const TextButton = ({
   disabled = false,
 }: {
   onClick: () => void
-  children: React.ReactNode | string
+  children?: ReactNode
   disabled?: boolean
 }) => (
   <Button variant="outlined" onClick={onClick} className="text-resume-900" disabled={disabled}>

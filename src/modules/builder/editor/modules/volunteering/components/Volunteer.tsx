@@ -1,8 +1,6 @@
 import TextField from '@mui/material/TextField'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import type React from 'react'
-import { type ChangeEvent, Fragment, useCallback } from 'react'
-
+import { type ChangeEvent, type FC, useCallback } from 'react'
 import { SwitchWidget } from 'src/helpers/common/atoms/Switch'
 import { RichtextEditor } from 'src/helpers/common/components/richtext'
 import { DATE_PICKER_FORMAT } from 'src/helpers/constants'
@@ -14,7 +12,7 @@ interface IVolunteerProps {
   currentIndex: number
 }
 
-const Volunteer: React.FC<IVolunteerProps> = ({ volunteeringInfo, currentIndex }) => {
+const Volunteer: FC<IVolunteerProps> = ({ volunteeringInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
     (name: string, value: any) => {
       const currentExpInfo = { ...volunteeringInfo }
@@ -27,17 +25,13 @@ const Volunteer: React.FC<IVolunteerProps> = ({ volunteeringInfo, currentIndex }
           currentExpInfo.position = value
           break
         case 'startDate':
-          if (value?.isValid()) {
-            currentExpInfo.startDate = value
-          }
+          currentExpInfo.startDate = value
           break
         case 'isVolunteeringNow':
           currentExpInfo.isVolunteeringNow = value
           break
         case 'endDate':
-          if (value?.isValid()) {
-            currentExpInfo.endDate = value
-          }
+          currentExpInfo.endDate = value
           break
         case 'summary':
           currentExpInfo.summary = value
@@ -58,7 +52,7 @@ const Volunteer: React.FC<IVolunteerProps> = ({ volunteeringInfo, currentIndex }
   )
 
   return (
-    <Fragment>
+    <>
       <TextField
         label="Organisation"
         variant="filled"
@@ -129,7 +123,7 @@ const Volunteer: React.FC<IVolunteerProps> = ({ volunteeringInfo, currentIndex }
         onChange={onSummaryChange}
         name="summary"
       />
-    </Fragment>
+    </>
   )
 }
 

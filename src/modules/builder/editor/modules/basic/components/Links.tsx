@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField'
-import React, { type ChangeEvent, Fragment, useEffect, useState } from 'react'
+import { type ChangeEvent, useEffect, useState } from 'react'
 
 const SUPPORTED_NETWORKS = {
   linkedin: 'linkedin',
@@ -90,7 +90,7 @@ const Links = ({
   }
 
   return (
-    <Fragment>
+    <>
       <TextField
         label="LinkedIn"
         variant="filled"
@@ -147,7 +147,7 @@ const Links = ({
           onURLChange(event.target.value, SUPPORTED_NETWORKS.leetcode)
         }}
       />
-    </Fragment>
+    </>
   )
 }
 

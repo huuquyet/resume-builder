@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField'
-import React, { type ChangeEvent, Fragment } from 'react'
+import type { ChangeEvent } from 'react'
 
 const Contacts = ({
   basicTabs,
@@ -9,7 +9,7 @@ const Contacts = ({
   onChangeHandler: (value: any, key: string) => void
 }) => {
   return (
-    <Fragment>
+    <>
       <TextField
         label="Name"
         variant="filled"
@@ -84,7 +84,7 @@ const Contacts = ({
           onChangeHandler(event.target.value, 'totalExp')
         }}
       />
-    </Fragment>
+    </>
   )
 }
 

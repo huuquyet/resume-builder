@@ -1,8 +1,6 @@
 import TextField from '@mui/material/TextField'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import type React from 'react'
-import { type ChangeEvent, Fragment, useCallback } from 'react'
-
+import { type ChangeEvent, type FC, useCallback } from 'react'
 import { SwitchWidget } from 'src/helpers/common/atoms/Switch'
 import { DATE_PICKER_FORMAT } from 'src/helpers/constants'
 import { useEducations } from 'src/stores/education'
@@ -13,7 +11,7 @@ interface IEducationProps {
   currentIndex: number
 }
 
-const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) => {
+const Education: FC<IEducationProps> = ({ educationInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
     (name: string, value: any) => {
       const currentExpInfo = { ...educationInfo }
@@ -31,17 +29,13 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
           currentExpInfo.score = value
           break
         case 'startDate':
-          if (value?.isValid()) {
-            currentExpInfo.startDate = value
-          }
+          currentExpInfo.startDate = value
           break
         case 'isStudyingHere':
           currentExpInfo.isStudyingHere = value
           break
         case 'endDate':
-          if (value?.isValid()) {
-            currentExpInfo.endDate = value
-          }
+          currentExpInfo.endDate = value
           break
 
         default:
@@ -53,7 +47,7 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
   )
 
   return (
-    <Fragment>
+    <>
       <TextField
         label="School or College name"
         variant="filled"
@@ -144,7 +138,7 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
         )}
         disabled={educationInfo.isStudyingHere}
       />
-    </Fragment>
+    </>
   )
 }
 

@@ -1,6 +1,6 @@
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
-import type React from 'react'
+import type { SyntheticEvent } from 'react'
 import type { IActivityTab, IAllActivityTabs } from '../ActivitiesLayout'
 
 const BasicHeader = ({
@@ -9,7 +9,7 @@ const BasicHeader = ({
   tabs,
 }: {
   activeTab: IActivityTab
-  changeActiveTab: (event: React.SyntheticEvent, key: string) => void
+  changeActiveTab: (event: SyntheticEvent, key: string) => void
   tabs: IAllActivityTabs
 }) => {
   return (

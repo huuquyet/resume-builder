@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
-import { Fragment } from 'react'
+import type { MouseEvent, ReactNode } from 'react'
 
 const animation = {
   exit: {
@@ -25,7 +25,7 @@ const MoveEditSection = ({
   title: string
   expanded: boolean
   clickHandler: () => void
-  children: JSX.Element
+  children?: ReactNode
   length: number
   index: number
   onMoveUp: (index: number) => void
@@ -46,13 +46,13 @@ const MoveEditSection = ({
         </span>
         <div className="flex gap-3">
           {length > 1 && (
-            <Fragment>
+            <>
               <Image
                 src="/icons/up-arrow.svg"
                 width={16}
                 height={16}
                 alt="up-arrow"
-                onClick={(event: React.MouseEvent) => {
+                onClick={(event: MouseEvent) => {
                   event.stopPropagation()
                   onMoveUp(index)
                 }}
@@ -62,19 +62,19 @@ const MoveEditSection = ({
                 width={16}
                 height={16}
                 alt="down-arrow"
-                onClick={(event: React.MouseEvent) => {
+                onClick={(event: MouseEvent) => {
                   event.stopPropagation()
                   onMoveDown(index)
                 }}
               />
-            </Fragment>
+            </>
           )}
           <Image
             src="/icons/delete.svg"
             width={14}
             height={18}
             alt="delete"
-            onClick={(event: React.MouseEvent) => {
+            onClick={(event: MouseEvent) => {
               event.stopPropagation()
               onDelete(index)
             }}

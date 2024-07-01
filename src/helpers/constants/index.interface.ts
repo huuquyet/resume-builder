@@ -1,3 +1,5 @@
+import type { ComponentType } from 'react'
+
 export interface IThemeColor {
   backgroundColor: string
   fontColor: string
@@ -11,7 +13,7 @@ export interface ITemplate {
     id: string
     name: string
     thumbnail: string
-    component: React.ComponentType
+    component: ComponentType
   }
 }
 
@@ -19,5 +21,5 @@ export interface ITemplateContent {
   id: string
   name: string
   thumbnail: string
-  component: React.ComponentType
+  component: ComponentType
 }

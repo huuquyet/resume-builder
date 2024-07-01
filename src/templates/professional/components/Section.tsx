@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Color from 'color'
-import type React from 'react'
+import type { ReactNode } from 'react'
 import { socialIcons } from 'src/helpers/icons'
 import type { IProfiles } from 'src/stores/basic.interface'
 
@@ -61,7 +61,7 @@ export function Section({
   profiles,
 }: {
   title: string
-  children: React.ReactNode
+  children?: ReactNode
   titleClassname?: string
   profiles?: IProfiles[]
 }) {

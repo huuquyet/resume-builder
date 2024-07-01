@@ -16,7 +16,7 @@ export const SectionValidator = ({
     | IAwardItem[]
     | IVolunteeringItem[]
     | ISkillItem[]
-  children: ReactNode
+  children?: ReactNode
 }) => {
   const isValid = useMemo(() => {
     return (value || '').length > 0

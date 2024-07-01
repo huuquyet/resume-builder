@@ -1,4 +1,4 @@
-import { Fragment, type SyntheticEvent, useState } from 'react'
+import { type SyntheticEvent, useState } from 'react'
 import Achievements from './components/Achievements'
 import BasicHeader from './components/BasicHeader'
 import BasicPanel from './components/BasicPanel'
@@ -38,10 +38,10 @@ const ActivitiesLayout = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <BasicHeader activeTab={activeTab} changeActiveTab={changeActiveTab} tabs={allActivityTabs} />
       <BasicPanel activeTab={activeTab} />
-    </Fragment>
+    </>
   )
 }
 
