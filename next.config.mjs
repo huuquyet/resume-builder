@@ -3,7 +3,15 @@ const nextConfig = {
   // output: 'export',
 
   reactStrictMode: true,
-  images: {},
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        port: '',
+      },
+    ],
+  },
   async redirects() {
     return [
       {
